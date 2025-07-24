@@ -1,0 +1,123 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-standard-scss",
+    "@wordpress/stylelint-config/scss",
+    "stylelint-prettier/recommended"
+  ],
+  "plugins": [
+    "stylelint-prettier"
+  ],
+  "rules": {
+    "import-notation": "string",
+    "prettier/prettier": true,
+    "selector-class-pattern": "^[a-z][a-z0-9\\-_]*[a-z0-9]$",
+    "custom-property-pattern": "^[a-z][a-z0-9\\-]*[a-z0-9]$",
+    "keyframes-name-pattern": "^[a-z][a-z0-9\\-]*[a-z0-9]$",
+    "scss/at-function-pattern": "^[a-z][a-z0-9\\-]*[a-z0-9]$",
+    "scss/at-mixin-pattern": "^[a-z][a-z0-9\\-]*[a-z0-9]$",
+    "scss/dollar-variable-pattern": "^[a-z][a-z0-9\\-]*[a-z0-9]$",
+    "scss/percent-placeholder-pattern": "^[a-z][a-z0-9\\-]*[a-z0-9]$",
+    "no-descending-specificity": null,
+    "declaration-property-unit-allowed-list": {
+      "line-height": [
+        "px",
+        "rem",
+        "em",
+        ""
+      ]
+    },
+    "at-rule-empty-line-before": [
+      "always",
+      {
+        "except": [
+          "blockless-after-same-name-blockless",
+          "first-nested"
+        ],
+        "ignore": [
+          "after-comment"
+        ]
+      }
+    ],
+    "rule-empty-line-before": null,
+    "selector-max-id": 0,
+    "declaration-no-important": true,
+    "comment-word-disallowed-list": [
+      "/^TODO:/",
+      "/^FIXME:/"
+    ],
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global", "local"]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.scss",
+        "**/*.sass"
+      ],
+      "rules": {
+        "scss/at-import-no-partial-leading-underscore": null,
+        "scss/load-no-partial-leading-underscore": true,
+        "scss/at-rule-no-unknown": [
+          true,
+          {
+            "ignoreAtRules": [
+              "include",
+              "mixin",
+              "extend",
+              "function",
+              "return",
+              "if",
+              "else",
+              "for",
+              "each",
+              "while",
+              "use",
+              "forward",
+              "media",
+              "supports",
+              "content"
+            ]
+          }
+        ],
+        "scss/no-global-function-names": null
+      }
+    },
+    {
+      "files": [
+        "**/*.css"
+      ],
+      "rules": {
+        "at-rule-no-unknown": [
+          true,
+          {
+            "ignoreAtRules": [
+              "tailwind",
+              "apply",
+              "variants",
+              "responsive",
+              "screen"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "**/vendor/**",
+        "**/node_modules/**",
+        "**/*.min.css",
+        "**/assets/**"
+      ],
+      "rules": {
+        "declaration-no-important": null,
+        "selector-max-specificity": null,
+        "selector-max-id": null
+      }
+    }
+  ]
+}

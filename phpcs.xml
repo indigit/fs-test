@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<ruleset name="FS Likes Plugin">
+    <description>Coding standards for FS Likes Plugin</description>
+
+    <!-- What to scan -->
+    <file>.</file>
+
+    <!-- Exclude paths -->
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/assets/*</exclude-pattern>
+    <exclude-pattern>*/tests/*</exclude-pattern>
+
+    <!-- How to scan -->
+    <arg value="sp"/> <!-- Show sniff and progress -->
+    <arg name="basepath" value="."/>
+    <arg name="colors"/>
+    <arg name="extensions" value="php"/>
+    <arg name="parallel" value="8"/>
+
+    <!-- Rules: Check PHP version compatibility -->
+    <config name="minimum_supported_wp_version" value="5.0"/>
+
+    <!-- Rules: WordPress Coding Standards (Customized for modern development) -->
+    <rule ref="WordPress-Core">
+        <!-- Allow short array syntax (modern PHP) -->
+        <exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
+        <exclude name="Universal.Arrays.DisallowShortArraySyntax"/>
+
+        <!-- Allow PSR-4 file structure -->
+        <exclude name="WordPress.Files.FileName"/>
+
+        <!-- Allow spaces for indentation (many editors default to spaces) -->
+        <exclude name="Generic.WhiteSpace.DisallowSpaceIndent"/>
+
+        <!-- Allow PSR standards -->
+        <exclude name="PSR1.Files.SideEffects"/>
+        <exclude name="PSR2.Methods.MethodDeclaration.Underscore"/>
+    </rule>
+
+    <!-- Add specific rules we want to keep -->
+    <rule ref="WordPress.Security.EscapeOutput">
+        <type>warning</type>
+    </rule>
+
+    <rule ref="WordPress.DB.DirectDatabaseQuery">
+        <type>warning</type>
+    </rule>
+
+    <rule ref="WordPress.DB.PreparedSQL">
+        <type>warning</type>
+    </rule>    <!-- Additional rules -->
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+    <rule ref="Generic.Commenting.Todo"/>
+    <rule ref="Generic.ControlStructures.InlineControlStructure"/>
+    <rule ref="Generic.Formatting.DisallowMultipleStatements"/>
+    <rule ref="Generic.Functions.FunctionCallArgumentSpacing"/>
+    <rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
+    <rule ref="Generic.PHP.DeprecatedFunctions"/>
+    <rule ref="Generic.PHP.DisallowShortOpenTag"/>
+    <rule ref="Generic.PHP.LowerCaseKeyword"/>
+    <rule ref="Generic.Strings.UnnecessaryStringConcat"/>
+    <rule ref="Generic.WhiteSpace.DisallowTabIndent"/>
+
+    <!-- Allow WordPress globals -->
+    <rule ref="PSR2.Methods.MethodDeclaration.Underscore">
+        <severity>0</severity>
+    </rule>
+</ruleset>

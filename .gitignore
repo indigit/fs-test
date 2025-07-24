@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+vendor/
+vendor/*
+
+# Build files
+dist/
+build/
+assets/
+*.min.js
+*.min.css
+
+# Logs
+*.log
+logs/
+
+# Cache
+.cache/
+*.tmp
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.bak
+*.orig
+*.rej
+
+# Package manager files
+package-lock.json
+composer.lock
+yarn.lock
+
+# Environment files
+.env
+.env.local
+
+# Composer
+composer.phar

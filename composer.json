@@ -1,0 +1,42 @@
+{
+    "name": "indigit/fs-likes",
+    "description": "A WordPress plugin for managing likes functionality",
+    "type": "wordpress-plugin",
+    "keywords": ["wordpress", "plugin", "likes"],
+    "homepage": "https://t.me/cbing",
+    "license": "GPL-2.0-or-later",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "indigit",
+            "homepage": "https://t.me/cbing"
+        }
+    ],
+    "require": {
+        "php": ">=7.4"
+    },
+    "require-dev": {
+        "wp-coding-standards/wpcs": "^3.0",
+        "phpcsstandards/phpcsutils": "^1.0",
+        "phpcsstandards/phpcsextra": "^1.1",
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "FS\\Likes\\": "includes/"
+        }
+    },
+    "scripts": {
+        "lint:php": "phpcs --standard=phpcs.xml",
+        "lint:php:fix": "phpcbf --standard=phpcs.xml"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "classmap-authoritative": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
